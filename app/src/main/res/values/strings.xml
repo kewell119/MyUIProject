@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">MyUIProject</string>
+    <string name="spinner_province">省份</string>
+    <string name="spinner_city">城市</string>
+    <string name="spinner_area">区域</string>
+
+    <array name="gridview_texts">
+        <item>功能一</item>
+        <item>功能二</item>
+        <item>功能三</item>
+        <item>功能四</item>
+        <item>功能五</item>
+        <item>功能六</item>
+        <item>功能七</item>
+        <item>功能八</item>
+        <item>功能九</item>
+        <item>功能十</item>
+    </array>
+
+    <array name="listview_texts">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>Four</item>
+        <item>Five</item>
+        <item>Six</item>
+        <item>Seven</item>
+        <item>Eight</item>
+        <item>Nine</item>
+        <item>Ten</item>
+    </array>
+
+    <string name="menu_select_all">全选</string>
+    <string name="menu_unselect_all">全不选</string>
+    <string name="menu_delete">删除选中</string>
+</resources>
