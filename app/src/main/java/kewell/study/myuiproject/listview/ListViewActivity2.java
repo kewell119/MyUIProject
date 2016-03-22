@@ -14,7 +14,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import kewell.study.myuiproject.R;
 
@@ -27,17 +29,26 @@ import kewell.study.myuiproject.R;
  */
 public class ListViewActivity2 extends ListActivity {
 
+    List<ListNumInfo> mListNuminfos;
+    ListViewAdapter2 mListadapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.registerForContextMenu(getListView());
 
         getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        getListView().setEnabled(false);
-        String[] itemStrings = getResources().getStringArray(R.array.listview_texts);
         //ArrayAdapter adapter=new ArrayAdapter(this,android.R.layout.simple_list_item_multiple_choice,itemStrings);
-        ListViewAdapter2 adapter = new ListViewAdapter2(this, R.layout.listview_item2, itemStrings);
-        setListAdapter(adapter);
+        this.initListNumInfo();
+        mListadapter = new ListViewAdapter2(this, R.layout.listview_item2, mListNuminfos);
+        setListAdapter(mListadapter);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.contextmenu, menu);
     }
 
     @Override
@@ -60,21 +71,26 @@ public class ListViewActivity2 extends ListActivity {
             default:
                 break;
         }
-        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
         return super.onContextItemSelected(item);
     }
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        Toast.makeText(this, ((TextView)(v.findViewById( R.id.tv_item2))).getText(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, mListNuminfos.get(position).getNumName(), Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.contextmenu, menu);
+    /**
+     * 初始化数据源
+     */
+    private void initListNumInfo() {
+        mListNuminfos = new ArrayList<ListNumInfo>();
+        String[] itemStrings = getResources().getStringArray(R.array.listview_texts);
+        for (int i = 0; i < itemStrings.length; i++) {
+            mListNuminfos.add(new ListNumInfo(itemStrings[i]));
+        }
+        ;
     }
 
     /**
@@ -83,10 +99,11 @@ public class ListViewActivity2 extends ListActivity {
      * @author 肖昌
      */
     private void selectAllOrNot(boolean isChecked) {
-        int count = getListView().getChildCount();
+        int count = mListNuminfos.size();
         for (int i = 0; i < count; i++) {
-            ((CheckBox) getListView().getChildAt(i).findViewById(R.id.cb_item2)).setChecked(isChecked);
+            mListNuminfos.get(i).setIsChecked(isChecked);
         }
+        mListadapter.notifyDataSetChanged();
     }
 
     /**
@@ -95,16 +112,18 @@ public class ListViewActivity2 extends ListActivity {
      * @return 删除多少列
      */
     private int removeItem() {
-        int count = getListView().getChildCount();
+        int count = mListNuminfos.size();
         int index = 0;
         for (int i = 0; i < count; i++) {
-            if (((CheckBox) getListView().getChildAt(i).findViewById(R.id.cb_item2)).isChecked()) {
-                getListView().removeViewAt(i);
+
+            if (mListNuminfos.get(i).getIsChecked()) {
+                mListNuminfos.remove(i);
                 i--;
                 count--;
                 index++;
             }
         }
+        mListadapter.notifyDataSetChanged();
         return index;
     }
 }
