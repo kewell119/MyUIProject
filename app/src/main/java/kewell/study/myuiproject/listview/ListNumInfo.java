@@ -5,6 +5,7 @@ package kewell.study.myuiproject.listview;
  */
 public class ListNumInfo {
 
+    private String tetetee;
     private String mNumName;
     private boolean mIsChecked = false;
 
