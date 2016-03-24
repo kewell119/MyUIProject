@@ -33,4 +33,10 @@
     <string name="menu_select_all">全选</string>
     <string name="menu_unselect_all">全不选</string>
     <string name="menu_delete">删除选中</string>
+
+    <array name="tabhost_texts">
+        <item>游戏</item>
+        <item>音乐</item>
+        <item>体育</item>
+    </array>
 </resources>

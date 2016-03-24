@@ -20,6 +20,10 @@
         <activity android:name=".gridview.GridViewActivity" android:label="@string/app_name"/>
         <activity android:name=".listview.ListViewActivity" android:label="@string/app_name"/>
         <activity android:name=".listview.ListViewActivity2" android:label="@string/app_name"/>
+        <activity android:name=".tabhost.TabHostActivity" android:label="@string/app_name"/>
+        <activity android:name=".tabhost.TabHostGameActivity" android:label="@string/app_name"/>
+        <activity android:name=".tabhost.TabHostMusicActivity" android:label="@string/app_name"/>
+        <activity android:name=".tabhost.TabHostSportsActivity" android:label="@string/app_name"/>
     </application>
 
 </manifest>

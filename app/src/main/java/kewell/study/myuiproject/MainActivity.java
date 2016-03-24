@@ -11,6 +11,7 @@ import kewell.study.myuiproject.listview.ListViewActivity;
 import kewell.study.myuiproject.listview.ListViewActivity2;
 import kewell.study.myuiproject.seekbar.SeekbarActivity;
 import kewell.study.myuiproject.spinner.SpinnerActivity;
+import kewell.study.myuiproject.tabhost.TabHostActivity;
 
 public class MainActivity extends AppCompatActivity {
     Button mButtonSpinner;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     Button mButtonGridView;
     Button mButtonListView;
     Button mButtonListView2;
+    Button mButtonTabHost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         this.mButtonGridView = (Button) this.findViewById(R.id.button_gridview);
         this.mButtonListView = (Button) this.findViewById(R.id.button_listview);
         this.mButtonListView2 = (Button) this.findViewById(R.id.button_listview2);
+        this.mButtonTabHost = (Button) this.findViewById(R.id.button_tabhost);
     }
 
     private void setButtonClickListene() {
@@ -78,6 +81,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, ListViewActivity2.class);
+                startActivity(intent);
+            }
+        });
+
+        this.mButtonTabHost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, TabHostActivity.class);
                 startActivity(intent);
             }
         });
