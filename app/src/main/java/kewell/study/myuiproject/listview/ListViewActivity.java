@@ -24,7 +24,7 @@ public class ListViewActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listview);
+        setContentView( R.layout.activity_listview);
 
         this.mListViewStudnt = (ListView) this.findViewById(R.id.lv_student);
         this.bindListView();

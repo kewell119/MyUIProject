@@ -1,12 +1,8 @@
 package kewell.study.myuiproject.tabhost;
 
-import android.app.Activity;
 import android.app.ActivityGroup;
-import android.app.LocalActivityManager;
-import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TabHost;
@@ -30,7 +26,8 @@ public class TabHostActivity extends ActivityGroup {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tabhost_activity);
+
+        setContentView(R.layout.activity_tabhost);
         this.initTabHost();
     }
 

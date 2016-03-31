@@ -7,11 +7,14 @@ import android.view.View;
 import android.widget.Button;
 
 import kewell.study.myuiproject.gridview.GridViewActivity;
+import kewell.study.myuiproject.imageswitcher.ImageSwitcherActivity;
 import kewell.study.myuiproject.listview.ListViewActivity;
 import kewell.study.myuiproject.listview.ListViewActivity2;
+import kewell.study.myuiproject.login.LoginActivity;
 import kewell.study.myuiproject.seekbar.SeekbarActivity;
 import kewell.study.myuiproject.spinner.SpinnerActivity;
 import kewell.study.myuiproject.tabhost.TabHostActivity;
+import kewell.study.myuiproject.weixin.WeiXinActivity;
 
 public class MainActivity extends AppCompatActivity {
     Button mButtonSpinner;
@@ -20,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
     Button mButtonListView;
     Button mButtonListView2;
     Button mButtonTabHost;
+    Button mButtonLogin;
+    Button mButtonImageSwitcher;
+    Button mButtonWeiXin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
         this.mButtonListView = (Button) this.findViewById(R.id.button_listview);
         this.mButtonListView2 = (Button) this.findViewById(R.id.button_listview2);
         this.mButtonTabHost = (Button) this.findViewById(R.id.button_tabhost);
+        this.mButtonLogin = (Button) this.findViewById(R.id.button_login);
+        this.mButtonImageSwitcher = (Button) this.findViewById(R.id.button_imageswitcher);
+        this.mButtonWeiXin = (Button) this.findViewById(R.id.button_weixin);
     }
 
     private void setButtonClickListene() {
@@ -90,6 +99,33 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, TabHostActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        this.mButtonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        this.mButtonImageSwitcher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, ImageSwitcherActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        this.mButtonWeiXin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, WeiXinActivity.class);
                 startActivity(intent);
             }
         });

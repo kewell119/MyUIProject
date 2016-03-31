@@ -46,4 +46,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="启动页卡示例" />
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="登录示例" />
+
+    <Button
+        android:id="@+id/button_imageswitcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="图片滑动示例" />
+
+    <Button
+        android:id="@+id/button_weixin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="微信示例" />
 </LinearLayout>
